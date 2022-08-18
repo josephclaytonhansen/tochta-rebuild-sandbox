@@ -1,47 +1,70 @@
-import * as THREE from 'https://unpkg.com/three/build/three.module.js';
+import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r127/three.module.js';
 import {
     OrbitControls
 } from 'https://unpkg.com/three@0.127.0/examples/jsm/controls/OrbitControls.js';
 
+import {
+    OBJLoader
+} from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/OBJLoader.js';
+
+import {
+    MTLLoader
+} from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/MTLLoader.js';
+
+
 var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+scene.background = new THREE.Color(0xffffff);
+
+var container = document.getElementById('canvas');
+document.body.appendChild(container);
 
 var renderer = new THREE.WebGLRenderer({
     antialias: true
 });
-renderer.setSize(window.innerWidth, window.innerHeight);
+
+var w = container.offsetWidth;
+var h = container.offsetHeight;
+var camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
+renderer.setSize(w, h);
+container.appendChild(renderer.domElement);
+
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
 document.body.appendChild(renderer.domElement);
 
-var geometry = new THREE.IcosahedronGeometry(1.5, 4);
-var material = new THREE.MeshStandardMaterial({
-    color: 0xffffff,
-    metalness: 0,
-    roughness: 0.8,
-});
-var ico = new THREE.Mesh(geometry, material);
-scene.add(ico);
 
-var shiny_material = new THREE.MeshStandardMaterial({
-    color: 0xffffff,
-    metalness: .7,
-    roughness: 0.35,
-});
-var sh = new THREE.Mesh(geometry, shiny_material);
-sh.translateZ(3);
-scene.add(sh);
 
-var box = new THREE.BoxGeometry(2, 2, 2);
-const cube = new THREE.Mesh(box, material);
-cube.translateX(-3);
-scene.add(cube);
+const loader = new OBJLoader();
 
-const shiny_cube = new THREE.Mesh(box, shiny_material);
-shiny_cube.translateX(-3);
-shiny_cube.translateZ(3);
-scene.add(shiny_cube);
+// load a resource
+loader.load(
+	// resource URL
+	'/mattress/mattress.obj',
+	// called when resource is loaded
+	function ( object ) {
+        object.scale.set(2,2,2);
+
+		scene.add( object );
+
+
+	},
+	// called when loading is in progresses
+	function ( xhr ) {
+
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened' );
+
+	}
+);
+
+
+
 
 // Lights
 // Lights

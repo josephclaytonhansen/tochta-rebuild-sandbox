@@ -2,3 +2,12 @@
     font-family: "Noto Serif";
     src: url("/NotoSerif-Regular.ttf");
 }
+
+#canvas {
+    background-color: lightblue;
+    width: 800px;
+    height:800px;
+    position:absolute;
+    top:800px;
+
+     }

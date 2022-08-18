@@ -1,0 +1,11 @@
+Model Information:
+* title:	Mattress
+* source:	https://sketchfab.com/3d-models/mattress-6a526b42e6a34a4ba12136a40d9a686b
+* author:	Miguel Ángel Jiménez (https://sketchfab.com/mangel.jimenez)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Mattress" (https://sketchfab.com/3d-models/mattress-6a526b42e6a34a4ba12136a40d9a686b) by Miguel Ángel Jiménez (https://sketchfab.com/mangel.jimenez) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
