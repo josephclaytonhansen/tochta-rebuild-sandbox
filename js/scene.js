@@ -30,31 +30,31 @@ scene.add(cube);
 var light = new THREE.HemisphereLight(0xfcf4e8, 0xfff7d9, 0.34);
 scene.add(light);
 
-const light2  = new THREE.DirectionalLight(0xdcfafa, 0.3);
-    light2.position.set(2.5, 0, 8); // ~60º
-    light2.name = 'main_light';
-    scene.add(light2);
+const light2 = new THREE.DirectionalLight(0xdcfafa, 0.3);
+light2.position.set(2.5, 0, 8); // ~60º
+light2.name = 'main_light';
+scene.add(light2);
 
-    const helper2 = new THREE.DirectionalLightHelper( light2, 1 );
-scene.add( helper2 );
+const helper2 = new THREE.DirectionalLightHelper(light2, 1);
+scene.add(helper2);
 
-    const light3  = new THREE.DirectionalLight(0xffeacc, 0.35);
-    light3.position.set(8, 9, 1); // ~60º
-    light3.name = 'main_light';
-    scene.add(light3);
+const light3 = new THREE.DirectionalLight(0xffeacc, 0.35);
+light3.position.set(8, 9, 1); // ~60º
+light3.name = 'main_light';
+scene.add(light3);
 
-    const helper3 = new THREE.DirectionalLightHelper( light3, 1);
-scene.add( helper3 );
+const helper3 = new THREE.DirectionalLightHelper(light3, 1);
+scene.add(helper3);
 
-const light4  = new THREE.DirectionalLight(0xffeacc, 0.3);
+const light4 = new THREE.DirectionalLight(0xffeacc, 0.3);
 light4.position.set(5, 5, -4); // ~60º
 light4.name = 'main_light';
 scene.add(light4);
 
-const helper4 = new THREE.DirectionalLightHelper( light4, 1);
-scene.add( helper4 );
+const helper4 = new THREE.DirectionalLightHelper(light4, 1);
+scene.add(helper4);
 
-camera.position.z = 5;
+camera.position.z = 10;
 
 
 var animate = function () {
