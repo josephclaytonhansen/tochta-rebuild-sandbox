@@ -24,6 +24,16 @@ var material = new THREE.MeshStandardMaterial({
 var cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
+var shiny_geometry = new THREE.IcosahedronGeometry(1.5, 4);
+var shiny_material = new THREE.MeshStandardMaterial({
+    color: 0xffffff,
+    metalness: .7,
+    roughness: 0.35,
+});
+var sh = new THREE.Mesh(shiny_geometry, shiny_material);
+sh.translateZ(3);
+scene.add(sh);
+
 // Lights
 // Lights
 
