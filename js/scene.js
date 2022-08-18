@@ -24,13 +24,12 @@ var material = new THREE.MeshStandardMaterial({
 var ico = new THREE.Mesh(geometry, material);
 scene.add(ico);
 
-var shiny_geometry = new THREE.IcosahedronGeometry(1.5, 4);
 var shiny_material = new THREE.MeshStandardMaterial({
     color: 0xffffff,
     metalness: .7,
     roughness: 0.35,
 });
-var sh = new THREE.Mesh(shiny_geometry, shiny_material);
+var sh = new THREE.Mesh(geometry, shiny_material);
 sh.translateZ(3);
 scene.add(sh);
 
@@ -38,6 +37,11 @@ var box = new THREE.BoxGeometry(2, 2, 2);
 const cube = new THREE.Mesh(box, material);
 cube.translateX(-3);
 scene.add(cube);
+
+const shiny_cube = new THREE.Mesh(box, shiny_material);
+shiny_cube.translateX(-3);
+shiny_cube.translateZ(3);
+scene.add(shiny_cube);
 
 // Lights
 // Lights
