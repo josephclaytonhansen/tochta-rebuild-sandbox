@@ -39,7 +39,7 @@ const helper2 = new THREE.DirectionalLightHelper(light2, 1);
 scene.add(helper2);
 
 const light3 = new THREE.DirectionalLight(0xffeacc, 0.35);
-light3.position.set(8, 9, 1); // ~60º
+light3.position.set(8, 9, -4); // ~60º
 light3.name = 'main_light';
 scene.add(light3);
 
@@ -47,7 +47,7 @@ const helper3 = new THREE.DirectionalLightHelper(light3, 1);
 scene.add(helper3);
 
 const light4 = new THREE.DirectionalLight(0xffeacc, 0.3);
-light4.position.set(5, 5, -4); // ~60º
+light4.position.set(5, 2, -4); // ~60º
 light4.name = 'main_light';
 scene.add(light4);
 
