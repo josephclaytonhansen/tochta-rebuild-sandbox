@@ -68,8 +68,8 @@ light2.position.set(2.5, 0, 8); // ~60º
 light2.name = 'main_light';
 scene.add(light2);
 
-const helper2 = new THREE.DirectionalLightHelper(light2, 1);
-scene.add(helper2);
+// const helper2 = new THREE.DirectionalLightHelper(light2, 1);
+// scene.add(helper2);
 
 const light3 = new THREE.DirectionalLight(0xffeacc, 0.35 * light_scale);
 light3.position.set(8, 9, -4); // ~60º
