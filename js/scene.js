@@ -27,7 +27,7 @@ scene.add(cube);
 // Lights
 // Lights
 
-var light = new THREE.HemisphereLight(0xfcf4e8, 0xfff7d9, 0.34);
+var light = new THREE.HemisphereLight(0xfcf4e8, 0xfff7d9, 0.38);
 scene.add(light);
 
 const light2 = new THREE.DirectionalLight(0xdcfafa, 0.3);
