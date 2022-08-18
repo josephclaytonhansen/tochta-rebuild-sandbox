@@ -55,7 +55,7 @@ mtlLoader.load( url, function( materials ) {
 });
 
 
-var light_scale = 1.5;
+var light_scale = 1.6;
 
 // Lights
 // Lights
