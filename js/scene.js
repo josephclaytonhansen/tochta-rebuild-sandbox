@@ -35,44 +35,35 @@ document.body.appendChild(renderer.domElement);
 
 
 
-const loader = new OBJLoader();
+var mtlLoader = new MTLLoader();
 
-// load a resource
-loader.load(
-	// resource URL
-	'/mattress/mattress.obj',
-	// called when resource is loaded
-	function ( object ) {
-        object.scale.set(2,2,2);
+mtlLoader.setPath( '/mattress/textures' );
+var url = "/mattress.mtl";
+mtlLoader.load( url, function( materials ) {
 
-		scene.add( object );
+    materials.preload();
 
+    var objLoader = new OBJLoader();
+    objLoader.setMaterials( materials );
+    objLoader.setPath( '/mattress' );
+    objLoader.load( '/mattress.obj', function ( object ) {
 
-	},
-	// called when loading is in progresses
-	function ( xhr ) {
+        scene.add( object );
 
-		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+    } );
 
-	},
-	// called when loading has errors
-	function ( error ) {
-
-		console.log( 'An error happened' );
-
-	}
-);
+});
 
 
-
+var light_scale = 1.5;
 
 // Lights
 // Lights
 
-var light = new THREE.HemisphereLight(0xfcf4e8, 0xfff7d9, 0.38);
+var light = new THREE.HemisphereLight(0xfcf4e8, 0xfff7d9, 0.38 * light_scale);
 scene.add(light);
 
-const light2 = new THREE.DirectionalLight(0xdcfafa, 0.3);
+const light2 = new THREE.DirectionalLight(0xdcfafa, 0.3 * light_scale);
 light2.position.set(2.5, 0, 8); // ~60º
 light2.name = 'main_light';
 scene.add(light2);
@@ -80,21 +71,21 @@ scene.add(light2);
 const helper2 = new THREE.DirectionalLightHelper(light2, 1);
 scene.add(helper2);
 
-const light3 = new THREE.DirectionalLight(0xffeacc, 0.35);
+const light3 = new THREE.DirectionalLight(0xffeacc, 0.35 * light_scale);
 light3.position.set(8, 9, -4); // ~60º
 light3.name = 'main_light';
 scene.add(light3);
 
-const helper3 = new THREE.DirectionalLightHelper(light3, 1);
-scene.add(helper3);
+// const helper3 = new THREE.DirectionalLightHelper(light3, 1);
+// scene.add(helper3);
 
-const light4 = new THREE.DirectionalLight(0xffeacc, 0.3);
+const light4 = new THREE.DirectionalLight(0xffeacc, 0.3 * light_scale);
 light4.position.set(4, 3, -8); // ~60º
 light4.name = 'main_light';
 scene.add(light4);
 
-const helper4 = new THREE.DirectionalLightHelper(light4, 1);
-scene.add(helper4);
+// const helper4 = new THREE.DirectionalLightHelper(light4, 1);
+// scene.add(helper4);
 
 camera.position.z = 10;
 
