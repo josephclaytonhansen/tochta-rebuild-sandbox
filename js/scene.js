@@ -88,7 +88,7 @@ scene.add(light4);
 // const helper4 = new THREE.DirectionalLightHelper(light4, 1);
 // scene.add(helper4);
 
-var geometry = new THREE.BoxBufferGeometry(.01, .75, 2.53);
+var geometry = new THREE.BoxBufferGeometry(.001, .75, 2.53);
 var edges = new THREE.EdgesGeometry(geometry);
 var hinge = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({
     color: 0xff0000
