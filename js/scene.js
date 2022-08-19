@@ -30,6 +30,7 @@ container.appendChild(renderer.domElement);
 
 
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.enablePan = false;
 
 document.body.appendChild(renderer.domElement);
 
@@ -37,20 +38,20 @@ document.body.appendChild(renderer.domElement);
 
 var mtlLoader = new MTLLoader();
 
-mtlLoader.setPath( '/mattress/textures' );
+mtlLoader.setPath('/mattress/textures');
 var url = "/mattress.mtl";
-mtlLoader.load( url, function( materials ) {
+mtlLoader.load(url, function (materials) {
 
     materials.preload();
 
     var objLoader = new OBJLoader();
-    objLoader.setMaterials( materials );
-    objLoader.setPath( '/mattress' );
-    objLoader.load( '/mattress.obj', function ( object ) {
+    objLoader.setMaterials(materials);
+    objLoader.setPath('/mattress');
+    objLoader.load('/mattress.obj', function (object) {
 
-        scene.add( object );
+        scene.add(object);
 
-    } );
+    });
 
 });
 
@@ -87,6 +88,34 @@ scene.add(light4);
 // const helper4 = new THREE.DirectionalLightHelper(light4, 1);
 // scene.add(helper4);
 
+var geometry = new THREE.BoxBufferGeometry(.01, .75, 2.53);
+var edges = new THREE.EdgesGeometry(geometry);
+var hinge = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({
+    color: 0xff0000
+}));
+
+geometry = new THREE.BoxBufferGeometry(.42, .73, .42);
+var edges = new THREE.EdgesGeometry(geometry);
+var corner = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({
+    color: 0x009955
+}));
+
+hinge.position.set(0, .39, 0);
+corner.position.set(1.65, .38, 1.02);
+scene.add(hinge);
+scene.add(corner);
+
+geometry = new THREE.BoxGeometry(.42, .73, .42);
+var material = new THREE.MeshBasicMaterial({
+    color: 0xffffff
+});
+var cube = new THREE.Mesh(geometry, material);
+cube.position.set(1.65, .38, 1.02);
+scene.add(cube);
+
+
+
+
 camera.position.z = 10;
 
 
@@ -94,6 +123,7 @@ var animate = function () {
     requestAnimationFrame(animate);
 
     renderer.render(scene, camera);
+    hinge.position.x = Math.sin(renderer.info.render.frame / 40) * 1.4;
 };
 
 window.addEventListener('resize', () => {
