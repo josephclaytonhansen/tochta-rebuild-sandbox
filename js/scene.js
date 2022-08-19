@@ -24,7 +24,7 @@ var renderer = new THREE.WebGLRenderer({
 
 var w = container.offsetWidth;
 var h = container.offsetHeight;
-var camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
+var camera = new THREE.PerspectiveCamera(50, w / h, 0.1, 1000);
 renderer.setSize(w, h);
 container.appendChild(renderer.domElement);
 
