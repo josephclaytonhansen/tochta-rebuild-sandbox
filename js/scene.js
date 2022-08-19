@@ -97,7 +97,7 @@ var hinge = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({
 geometry = new THREE.BoxBufferGeometry(.42, .73, .42);
 var edges = new THREE.EdgesGeometry(geometry);
 var corner = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({
-    color: 0xffffff
+    color: 0x009955
 }));
 
 hinge.position.set(0, .39, 0);
